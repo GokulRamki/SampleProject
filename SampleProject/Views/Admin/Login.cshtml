@@ -1,0 +1,41 @@
+﻿  @model SampleProject.Models.adminmodel
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="choose_box remov_padd">
+    @using (Html.BeginForm("Login", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        if (ViewBag != null)
+        {
+            <div class="alert alert-danger" role="alert"><strong>Error!</strong>&nbsp;@ViewBag.Msg</div>
+        }
+<div class="sub_page">
+    <h2>Administration Login</h2>
+    <p>&nbsp;</p>
+    <div class="page_box">
+        <div class="left_side">Username</div>
+        <div class="right_side">
+            @Html.TextBoxFor(m => m.username, new { autofocus = "autofocus" })
+            @Html.ValidationMessageFor(m => m.username)
+        </div>
+    </div>
+    <div class="page_box">
+        <div class="left_side">Password</div>
+        <div class="right_side">
+            @Html.PasswordFor(m => m.password, new { autofocus = "autofocus" })
+            @Html.ValidationMessageFor(m => m.password)
+        </div>
+    </div>
+    <div class="page_box">
+        <div class="left_side">&nbsp;</div>
+        <div class="right_side">
+            <input type="submit" value="submit" />
+        </div>
+    </div>
+  </div>
+    }
+</div>
+
+
+

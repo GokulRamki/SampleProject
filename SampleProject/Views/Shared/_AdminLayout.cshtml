@@ -1,0 +1,220 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title :: bmobile-Vodafone Papua New Guinea and Solomon Islands offers high-speed data</title>
+    <link href="@Url.Content("~/Images/favicon.ico")" rel="shortcut icon" type="image/x-icon" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <link href="@Url.Content("~/Content/admin_style.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/bootstrap.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/paging.css")" rel="stylesheet" />
+    <script src="@Url.Content("~/js/jquery.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/js/jquery.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery-3.4.1.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery-ui-3.4.1.js")" type="text/javascript"></script>
+    <link href="@Url.Content("~/Content/themes/base/jquery-ui.css")" rel="stylesheet" />
+
+
+    <script src="@Url.Content("~/Scripts/tinymce/tiny_mce.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            /* prepend menu icon */
+            $('#nav-wrap').prepend('<div id="menu-icon">BROWSE</div>');
+
+            /* toggle nav */
+            $("#menu-icon").on("click", function () {
+                $("#nav").slideToggle();
+                $(this).toggleClass("active");
+            });
+        });
+    </script>
+</head>
+<body>
+    <!-- Header -->
+
+    <div class="header">
+        <div class="header_next" style="background:#F5F5F5;">
+            <div class="margin">
+                <div class="head_top">
+                    <div class="logo">
+                        <div class="logo_img">
+                            <a href="@Url.Action("Index", "Home")" class="site-title">
+                                <img src="/Images/bmobilelogo.png" alt="Home"></img>
+                            </a>
+                        </div>
+
+                    </div>
+                    <div class="header_right">
+                        <div class="header_top_menu" style="min-height: 70px;">
+                            <div class="pull-right">
+                                @if (Session["user"] != null)
+                                {
+                                    <span style="color: #ff6a00;">Hi Admin</span> <span style="color: #444E82;">|</span> <a href="@Url.Action("logout", "admin")" style="color:#ff6a00;">Logout</a>
+                                }
+                                else
+                                {
+                                    <a href="@Url.Action("login", "admin")" style="color:#ff6a00;">Login</a>
+                                }
+                            </div>
+                        </div>
+                        @if (Session["user"] != null)
+                        {
+                            <div class="nav_menu">
+                                <nav id="nav-wrap" style="width:750px">
+                                    <ul id="nav">
+                                        <li>
+                                            <a href="#">Home </a>
+                                            <ul class="mid_menu_1" style="width:250px">
+                                                <li>
+                                                    <div class="mid_hor_sub">
+                                                        <div class="arrow_img">
+                                                            <img src="/Images/mega-menu-up-arrow.png">
+                                                        </div>
+                                                        <div class="cat_left_menu">
+                                                            <div class="cat_sub_menu"><a href="@Url.Action("slider", "Admin")">Slider</a></div>
+                                                            <div class="cat_sub_menu"><a href="@Url.Action("marquee", "Admin")">Marquee</a></div>
+                                                            <div class="cat_sub_menu"><a href="@Url.Action("promotion", "Admin")">Promotion</a></div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#">Price Plans</a>
+                                            <ul class="mid_menu_1" style="width:250px">
+                                                <li>
+                                                    <div class="mid_hor_sub">
+                                                        <div class="arrow_img">
+                                                            <img src="/Images/mega-menu-up-arrow.png">
+                                                        </div>
+                                                        <div class="cat_left_menu">
+                                                            <div class="cat_sub_menu"><a href="@Url.Action("Call_rate_bycountry", "Admin")">Call Rate's</a></div>
+                                                            <div class="cat_sub_menu"><a href="@Url.Action("Data_bundle", "Admin")">Data Bundle Rate's</a></div>
+                                                            <div class="cat_sub_menu"><a href="@Url.Action("Prepaid", "Admin")">Prepaid</a></div>
+                                                            <div class="cat_sub_menu"><a href="@Url.Action("Prepaid_type", "Admin")">Prepaid Types</a></div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#">Page</a>
+                                            <ul class="mid_menu_1" style="width:250px">
+                                                <li>
+                                                    <div class="mid_hor_sub">
+                                                        <div class="arrow_img">
+                                                            <img src="/Images/mega-menu-up-arrow.png">
+                                                        </div>
+                                                        <div class="cat_left_menu">
+                                                            <div class="cat_sub_menu"><a href="@Url.Action("page", "Admin")">Pages</a></div>
+                                                        </div>
+                                                        <div class="cat_left_menu">
+                                                            <div class="cat_sub_menu"><a href="@Url.Action("Static_Page", "Admin")">Static Page Content</a></div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("support", "Admin")">Support</a>
+                                            <ul class="mid_menu_1" style="width:250px">
+                                                <li>
+                                                    <div class="mid_hor_sub">
+                                                        <div class="arrow_img">
+                                                            <img src="/Images/mega-menu-up-arrow.png">
+                                                        </div>
+                                                        <div class="cat_left_menu">
+                                                            <div class="cat_sub_menu"><a href="@Url.Action("support_meta", "Admin")">Support Type</a></div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="@Url.Action("VAS", "Admin")">Value Added Service</a></li>
+                                        <li>
+                                            <a href="#">bmobile-Vodafone</a>
+                                            <ul class="mid_menu_1" style="width:250px">
+                                                <li>
+                                                    <div class="mid_hor_sub">
+                                                        <div class="arrow_img">
+                                                            <img src="/Images/mega-menu-up-arrow.png">
+                                                        </div>
+                                                        <div class="cat_left_menu">
+                                                            <div class="cat_sub_menu"><a href="@Url.Action("Tenders", "Admin")">Tender</a></div>
+                                                            <div class="cat_sub_menu"><a href="@Url.Action("Management", "Admin")">Management</a></div>
+                                                            <div class="cat_sub_menu"><a href="@Url.Action("Resellers", "Admin")">Resellers</a></div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#">Faq</a>
+                                            <ul class="mid_menu_1" style="width:250px">
+                                                <li>
+                                                    <div class="mid_hor_sub">
+                                                        <div class="arrow_img">
+                                                            <img src="/Images/mega-menu-up-arrow.png">
+                                                        </div>
+                                                        <div class="cat_left_menu">
+                                                            <div class="cat_sub_menu"><a href="@Url.Action("Faq_Title", "Admin")">Faq's Title</a></div>
+                                                            <div class="cat_sub_menu"><a href="@Url.Action("Faq_QA", "Admin")">Faq _QA</a></div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+
+                                    </ul>
+                                </nav>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- / -->
+    <!-- Body -->
+    <div id="body" class="mid">
+        @RenderSection("featured", required: false)
+        <section class="content-wrapper  clear-fix">
+            @RenderBody()
+        </section>
+    </div>
+    <!-- / -->
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer_bg">
+        </div>
+    </div>
+
+    <!-- / -->
+    @Scripts.Render("~/js")
+
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryui")
+
+    @RenderSection("scripts", required: false)
+
+    <style type="text/css">
+        .ui-dialog-titlebar {
+            background: #444E82;
+            color: white;
+        }
+
+        .ui-dialog-buttonset .ui-button {
+            background: #C7593D;
+            color: white;
+        }
+    </style>
+
+    <div style="clear: both;"></div>
+</body>
+</html>
+
+
+
